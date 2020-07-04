@@ -3,6 +3,7 @@ findata$pperatio <- findata$ppe/findata$assets
 head(findata)
 findata[1:2, ]
 findata[1, 1:5]
+findata[2,3]
 selclass <- c(14, 17, 43)
 seldata <- findata[is.element(findata$indclass, selclass) & !is.na(findata$indclass), ]
 seldata$indclass <- as.factor(seldata$indclass)
