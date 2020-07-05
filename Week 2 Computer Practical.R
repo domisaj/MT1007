@@ -42,7 +42,13 @@ boot.ci(boot.out = b1,conf = 0.95, type = c("perc"))
 hist(b1) # Red line is the difference between the means
 
 ### 95% confidence interval for industry class 15
+# Lower confidence interval
 lower <- mean(tq15) + qt(0.025, df = length(tq15)-1) * sd(tq15)/sqrt(length(tq15))
 lower
+# Upper confidence interval
 upper <- mean(tq15) - qt(0.025, df = length(tq15)-1) * sd(tq15)/sqrt(length(tq15))
-upper                                                     
+upper
+
+### Bootstrap to get confidence interval for one variable - industry class 15
+b1 <- one.boot(data = tq15, FUN = mean, R = 2000)
+boot.ci(boot.out = b1, conf = 0.95, type = c("perc"))
