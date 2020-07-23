@@ -11,7 +11,7 @@ lsslope <- 61.27
 # Simple regression equation
 lsfit <- lsint + lsslope*data$Height
 # Residuals 
-lsres <- data$Weight - 
+lsres <- data$Weight - lsfit
   
 # Plot scatterplot
 plot(data$Height, data$Weight, xlab = "Height", ylab = "Weight")
@@ -19,6 +19,7 @@ plot(data$Height, data$Weight, xlab = "Height", ylab = "Weight")
 points(data$Height, lsfit, col = 2)
 
 # Minimum sum of squared residuals 
+# Also SS for the residuals in anova function
 sum(lsres^2)
 
 # Histogram to check shape of distribution of residuals - error term
@@ -28,6 +29,7 @@ hist(lsres)
 mean(lsres)
 
 # Obtain more information about the model 
+# Residual  standard error is the variance of the errors
 summary(lm1)
 # Use anova function to get more info about the model
 anova(lm1)
@@ -39,5 +41,7 @@ r2
 hist(rf(10000, df = 1, df2 = 13))
 # Get critical value
 qf(p = 0.05, df1=1, df2=13, lower.tail=FALSE)
+# F test statistic
+f_value <- 1190
 # F statistic greater than critical value, leading to a very small p-value and
-# a relationship between height and weight
+# a relationship between height and
