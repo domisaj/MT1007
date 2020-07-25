@@ -63,3 +63,35 @@ new_heights$Weight <- predict(lm1, newdata = new_heights)
 plot(data$Height, data$Weight, xlab = "Height", ylab = "Weight")
 # Add red dots showing the predicted values
 points(data$Height, data$Predicted, col = 2)
+
+### CHECKING ASSUMPTIONS
+
+# Storing residuals
+res <- residuals(lm1)
+
+## Checking normality in the errors
+
+# QQ Plot
+qqnorm(res)
+# Histogram
+hist(res, nclass = 10)
+# Shapiro-Wilks test
+shapiro.test(res)
+
+## Assessing constant error variance
+
+# Plot predicted values vs residuals
+plot(data$Predicted, res, xlab = "Predicted Values", ylab = "Residuals")
+abline(h=0, lty=2)
+
+# Breusch-Pagan test
+ncvTest(lm1)
+
+## Checking independence
+
+# Plot of residuals
+plot(res)
+# Durbin-Watson test
+durbinWatsonTest(lm1) # p-value is small so evidence to reject null hypothesis
+                      # and conclude residuals are correlated
+
