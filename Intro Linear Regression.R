@@ -17,6 +17,8 @@ lsres <- data$Weight - lsfit
 plot(data$Height, data$Weight, xlab = "Height", ylab = "Weight")
 # Add simple linear model to the scatterplot, shown by a red line 
 points(data$Height, lsfit, col = 2)
+# Add regression line
+abline(lm(Weight~Height, data = data), col = 2)
 
 # Minimum sum of squared residuals 
 # Also SS for the residuals in anova function
@@ -44,4 +46,10 @@ qf(p = 0.05, df1=1, df2=13, lower.tail=FALSE)
 # F test statistic
 f_value <- 1190
 # F statistic greater than critical value, leading to a very small p-value and
-# a relationship between height and
+# a relationship between height and weight
+
+# Create a dataframe of new values of height for which we want to predict
+# weight using the linear model
+new_heights <- data.frame(Height = c(1.85, 1.87, 1.89))
+# Add a new column to the dataframe with the predicted values for height
+new_heights$Weight <- predict(lm1, newdata = new_heights)    
