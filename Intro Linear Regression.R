@@ -76,7 +76,7 @@ qqnorm(res)
 # Histogram
 hist(res, nclass = 10)
 # Shapiro-Wilks test
-shapiro.test(res)
+shapiro.test(res) # Data is normally distributed as p > 0.05
 
 ## Assessing constant error variance
 
@@ -85,7 +85,7 @@ plot(data$Predicted, res, xlab = "Predicted Values", ylab = "Residuals")
 abline(h=0, lty=2)
 
 # Breusch-Pagan test
-ncvTest(lm1)
+ncvTest(lm1) # As p>0.05, have constant error variance
 
 ## Checking independence
 
@@ -93,5 +93,4 @@ ncvTest(lm1)
 plot(res)
 # Durbin-Watson test
 durbinWatsonTest(lm1) # p-value is small so evidence to reject null hypothesis
-                      # and conclude residuals are correlated
-
+                      # and conclude residuals are correlated, not independent
