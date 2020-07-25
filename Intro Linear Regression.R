@@ -48,8 +48,18 @@ f_value <- 1190
 # F statistic greater than critical value, leading to a very small p-value and
 # a relationship between height and weight
 
+### PREDICTION
+
+# Get predicted values for all rows in the original dataset
+data$Predicted <- predict(lm1, newdata = data)
+
 # Create a dataframe of new values of height for which we want to predict
 # weight using the linear model
 new_heights <- data.frame(Height = c(1.85, 1.87, 1.89))
 # Add a new column to the dataframe with the predicted values for height
 new_heights$Weight <- predict(lm1, newdata = new_heights)    
+
+# Scatterplot of original values
+plot(data$Height, data$Weight, xlab = "Height", ylab = "Weight")
+# Add red dots showing the predicted values
+points(data$Height, data$Predicted, col = 2)
