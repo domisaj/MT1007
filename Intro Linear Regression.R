@@ -58,6 +58,8 @@ data$Predicted <- predict(lm1, newdata = data)
 new_heights <- data.frame(Height = c(1.85, 1.87, 1.89))
 # Add a new column to the dataframe with the predicted values for height
 new_heights$Weight <- predict(lm1, newdata = new_heights)    
+# Add predicted values as a column to the original dataset
+data$Predicted <- predict(lm1, newdata = data)
 
 # Scatterplot of original values
 plot(data$Height, data$Weight, xlab = "Height", ylab = "Weight")
