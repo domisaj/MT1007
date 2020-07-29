@@ -1,0 +1,25 @@
+---
+title: "Tutorial"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# How to evaluate expression
+
+Looking at **different** *numbers*
+
+Here is a list of numbers
+
+- 4
+- 5
+- 6 
+
+```{r}
+# summary of cars
+summary(cars)
+data <- read.csv("Financial data.csv", header = TRUE)
+summary(data$assets)
+```

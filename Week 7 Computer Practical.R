@@ -82,6 +82,8 @@ res
 names(res)
 # x2 statistic
 res$statistic
+# p-value
+pchisq(res$statistic, df=6, lower.tail=FALSE)
 
 # plot
 par(mfrow = c(1,1))
