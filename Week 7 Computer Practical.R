@@ -84,7 +84,7 @@ names(res)
 res$statistic
 
 # plot
-par(mfrow = c(1,1)
+par(mfrow = c(1,1))
 # Histogram of 10000 random values generated from
 # x2 distribution
 hist(rchisq(10000, df = 6))
