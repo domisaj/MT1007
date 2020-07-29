@@ -120,3 +120,5 @@ summary(lm1)
 pf(21.7, 4, 62, lower.tail=FALSE)
 # Get critical value associated with the F statistic for model lm1
 qf(0.05, 4, 62, lower.tail=FALSE)
+
+hi
