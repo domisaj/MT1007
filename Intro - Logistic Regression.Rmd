@@ -95,11 +95,11 @@ levels(data$sex) <- c("F", "M")
 levels(data$sex)
 
 # Clean up ?s
-data$ca <- as.integer(data$ca) # first convert to integers
+data$ca <- as.integer(data$ca) # thinks levels are strings, first convert to integers
 data$ca <- as.factor(data$ca) # then convert to factor levels
 
-data$thal <- as.integer(data$thal) # convert to integers
-data$thal <- as.factor(data$thal) # convert to factors
+data$thal <- as.integer(data$thal) # thinks levels are strings, convert to integers
+data$thal <- as.factor(data$thal) # then convert to factors
 
 # Replace 0 and 1 with "healthy" and "unhealthy"
 data$hd <- ifelse(test = data$hd == 0, yes = "Healthy", no = "Unhealthy")
@@ -139,6 +139,7 @@ levels are represented by people with and without heart disease (hd)."*
 <br>
 
 ```{r}
+xtabs(~hd, data = data)
 xtabs(~ hd + sex, data=data)
 xtabs(~ hd + cp, data=data)
 xtabs(~ hd + fbs, data=data)
